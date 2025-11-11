@@ -1,0 +1,29 @@
+.contact-info-footer {
+  border-top: 2px solid rgba(216, 195, 165, 0.5);
+  margin-top: 80px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #000;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+}
+
+.contact-info-footer a {
+  color: #d8c3a5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info-footer a:hover {
+  color: #b99d7c;
+}
+
+@media (max-width: 576px) {
+  .contact-info-footer {
+    font-size: 1rem;
+    padding: 20px 10px 25px;
+  }
+}

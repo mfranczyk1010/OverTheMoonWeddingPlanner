@@ -1,0 +1,196 @@
+
+
+.navbar-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1050;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  box-sizing: border-box;
+  position: relative;
+  
+}
+
+/* --- LOGO --- */
+.navbar-logo {
+  flex: 1;
+  text-align: center;
+  font-family: "tytulowa", serif;
+  font-size: 6rem;
+  color: #000;
+  letter-spacing: 2px;
+  margin: 0;
+  cursor: pointer;
+  transition: font-size 0.3s ease, color 0.3s ease;
+  z-index: 2;
+  white-space: nowrap; /* trzyma w jednej linii */
+}
+
+/* 🔹 ale na mniejszych ekranach pozwalamy łamać */
+@media (max-width: 1200px) {
+  .navbar-logo {
+    white-space: normal;
+    line-height: 1.1;
+    word-break: keep-all;
+  }
+}
+
+
+.navbar-logo:hover {
+  color: #d8c3a5;
+}
+
+.navbar-bottom {
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #d8c3a5;
+  border-bottom: 1px solid #d8c3a5;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  padding: 12px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item-custom {
+  position: relative;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.22s ease;
+}
+
+.nav-item-custom.active {
+  color: #d8c3a5;
+}
+
+.nav-item-custom::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 2px;
+  background: #d8c3a5;
+  transition: transform 0.3s ease;
+}
+
+.nav-item-custom:hover {
+  color: #d8c3a5;
+}
+
+.nav-item-custom:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.instagram-icon {
+  color: #000;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.instagram-icon:hover {
+  color: #d8c3a5;
+}
+
+.navbar-custom.scrolled .navbar-logo {
+  font-size: 2.6rem;
+}
+
+/* aby hamburger był tylko po prawej, logo wyśrodkowane */
+.navbar-top::before,
+.navbar-top::after {
+  content: "";
+  flex: 1;
+}
+.menu-toggle {
+  flex: 0 0 auto;
+  font-size: 2.2rem;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 3;
+  position: relative;
+  display: none; /* ⬅️ DODAJ TO — ukrywa hamburger na dużych ekranach */
+}
+
+
+.menu-toggle:hover {
+  color: #d8c3a5;
+}
+
+/* --- responsywne menu --- */
+@media (max-width: 800px) {
+  .navbar-logo {
+    font-size: 4rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-bottom {
+    display: none;
+    width: 100%;
+    border-top: none;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  .navbar-bottom.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #d8c3a5;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 0;
+  }
+
+  .instagram-icon {
+    justify-content: center;
+  }
+
+  .nav-item-custom {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    font-size: 3rem;
+  }
+
+  .nav-item-custom {
+    font-size: 1.6rem;
+  }
+}

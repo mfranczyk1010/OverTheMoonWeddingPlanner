@@ -1,0 +1,610 @@
+/* ===== FULL-BLEED banner bez szpar i w 100% szerokości ekranu ===== */
+.about-banner-full {
+  /* szerokość ekranu bez „dolepionego” paska przewijania */
+  width: calc(100vw - (100vw - 100%));
+  /* precyzyjne wycentrowanie względem viewportu, bez uciekania na boki */
+  margin-left: calc(50% - 50vw + (100vw - 100%) / 2);
+  margin-right: calc(50% - 50vw + (100vw - 100%) / 2);
+
+  /* reszta */
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Obraz w pełni responsywny: 100% szerokości, automatyczna wysokość */
+.about-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;      /* <- klucz do skalowania przy zmianie zoomu/okna */
+  max-width: none;   /* brak limitu, żeby nie „trzymało” szerokości */
+  margin: 0;
+  border: 0;
+  /* jeśli chcesz: lekki, elegancki wygląd bez hoverów */
+  filter: none;
+  transform: none;
+}
+
+/* (opcjonalnie) delikatny gradient na dole – usuń, jeśli nie chcesz */
+.about-banner-full::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+
+/* ===== SEKCJA O MNIE ===== */
+.about-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 0; /* było 60px → zwiększamy */
+  text-align: center;
+}
+
+/* Większy odstęp między sekcją O mnie a Referencjami */
+.about-content {
+  margin-bottom: 100px; /* DODANE: więcej oddechu nad referencjami */
+}
+
+
+.about-title {
+  font-family: "tytulowa", serif;
+  font-size: 4rem;
+  color: #000;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.about-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 195, 165, 0) 0%,
+    rgba(216, 195, 165, 0.8) 25%,
+    rgba(216, 195, 165, 0.8) 75%,
+    rgba(216, 195, 165, 0) 100%
+  );
+}
+
+.about-text {
+  font-size: 1.15rem;
+  color: #222;
+  line-height: 1.8;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+/* Wyróżnienie */
+.about-highlight {
+  font-size: 1.3rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top: 2px solid #d8c3a5;
+  border-bottom: 2px solid #d8c3a5;
+  display: inline-block;
+  padding: 12px 0;
+}
+
+.about-subtitle {
+  font-family: "tytulowa", serif;
+  font-size: 2.4rem;
+  color: #000;
+  margin-top: 50px;
+}
+
+/* ===== REFERENCJE - SIATKA 3 W RZĘDZIE ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+  gap: 40px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 50px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+    margin-top: 60px; /* nieco większy odstęp od nagłówka */
+  margin-bottom: 100px; /* DODANE: więcej miejsca pod referencjami */
+}
+
+.testimonial-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fffaf8;
+  border: 1px solid rgba(216, 195, 165, 0.4);
+  border-radius: 12px;
+  padding: 40px 30px 25px 30px;
+  box-shadow: 0 8px 20px rgba(216, 195, 165, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 26px rgba(216, 195, 165, 0.35);
+  border-color: #d8c3a5;
+  background: linear-gradient(180deg, #fffdfa 0%, #fdf8f3 100%);
+}
+
+.testimonial-card blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #333;
+  line-height: 1.8;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid #d8c3a5;
+}
+
+.testimonial-card blockquote::before {
+  content: "“";
+  position: absolute;
+  left: -5px;
+  top: -10px;
+  font-size: 2.5rem;
+  color: #d8c3a5;
+  line-height: 1;
+}
+
+/* ===== AUTOR Z OZDOBĄ ===== */
+.testimonial-author {
+  margin-top: 18px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #000;
+  text-align: right;
+  border-top: 1px solid rgba(216, 195, 165, 0.3);
+  padding-top: 10px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 1100px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 w rzędzie */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* 1 w rzędzie */
+    gap: 25px;
+  }
+
+  .testimonial-card {
+    max-width: 90%;
+    padding: 25px 20px;
+  }
+
+  .testimonial-card blockquote {
+    font-size: 1rem;
+  }
+}
+
+
+/* ===== UKŁAD TEKST + ZDJĘCIE ===== */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: nowrap; /* ⬅️ NIE wrapuje na desktopie */
+  margin-top: 50px;
+  background: linear-gradient(135deg, #fffaf8 0%, #f8f4f1 100%);
+  border: 1px solid rgba(216, 195, 165, 0.25);
+  border-radius: 16px;
+  padding: 70px 90px;
+  box-shadow: 0 8px 24px rgba(216, 195, 165, 0.2);
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.about-text-side {
+  flex: 1 1 60%;
+  max-width: 700px;
+  text-align: justify;
+  font-size: 1.3rem;
+  line-height: 2;
+  color: #111;
+}
+
+.about-photo-side {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid rgba(216, 195, 165, 0.5);
+  box-shadow: 0 10px 25px rgba(216, 195, 165, 0.3);
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-photo-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 28px rgba(216, 195, 165, 0.5);
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column-reverse; /* tylko na tablet/telefon */
+    padding: 40px 25px;
+    gap: 40px;
+    max-width: 95%;
+  }
+
+  .about-text-side {
+    max-width: 100%;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.9;
+  }
+
+  .about-photo-img {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-text-side {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .about-photo-img {
+    max-width: 90%;
+  }
+}
+/* ===== MINI SEKCJA OFERTA ===== */
+.about-offer-preview {
+  margin-top: 120px; /* było 90px → zwiększamy */
+  text-align: center;
+}
+.offer-cards-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.offer-mini-card {
+  background: #ffffff;
+  border: 1px solid rgba(216, 195, 165, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(216, 195, 165, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.offer-mini-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(216, 195, 165, 0.25);
+  border-color: #d8c3a5;
+}
+
+.offer-mini-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.offer-mini-card:hover .offer-mini-img {
+  filter: brightness(0.85);
+}
+
+.offer-mini-content {
+  padding: 25px 20px 30px;
+  text-align: left;
+}
+
+.offer-mini-content h4 {
+  font-family: "tytulowa", serif;
+  font-size: 1.9rem;
+  color: #000;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #d8c3a5;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.offer-mini-content p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 1100px) {
+  .offer-cards-mini {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-cards-mini {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .offer-mini-img {
+    height: 240px;
+  }
+
+  .offer-mini-content h4 {
+    font-size: 1.6rem;
+  }
+}
+/* ===== ELEGANCKIE TEKSTY POD NAGŁÓWKAMI ===== */
+
+/* Tekst pod "Referencje" i "Oferta" */
+.about-subtext {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #7a6a58;
+  letter-spacing: 0.3px;
+  line-height: 1.8;
+  margin-bottom: 45px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtelny, ozdobny separator pod tekstem */
+.about-subtext::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 195, 165, 0) 0%,
+    rgba(216, 195, 165, 0.8) 50%,
+    rgba(216, 195, 165, 0) 100%
+  );
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
+}
+/* ===== ANIMACJA FADE-IN ===== */
+@keyframes fadeInElegant {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Domyślnie ukryte elementy */
+.about-title,
+.about-subtext,
+.about-subtitle,
+.testimonial-card,
+.offer-mini-card {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Aktywne po wejściu w viewport */
+.visible {
+  animation: fadeInElegant 1.2s ease-out forwards;
+}
+/* ===== SEKCJA ZAPROSZENIA ===== */
+.about-invite-section {
+  text-align: center;
+  margin-top: 180px; /* ⬆️ większy odstęp od sekcji Oferty */
+  margin-bottom: 60px;
+  padding: 20px 0;
+}
+
+.about-invite-section h3 {
+  font-size: 2.8rem;
+  color: #000;
+  margin-bottom: 25px;
+  font-family: "tytulowa", serif;
+  position: relative;
+}
+
+.about-invite-section h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 195, 165, 0) 0%,
+    rgba(216, 195, 165, 0.9) 25%,
+    rgba(216, 195, 165, 0.9) 75%,
+    rgba(216, 195, 165, 0) 100%
+  );
+  border-radius: 2px;
+}
+
+.about-invite-section p {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #7a6a58;
+  letter-spacing: 0.3px;
+  line-height: 1.9;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+/* ===== ZDJĘCIE ===== */
+.about-invite-img {
+  width: 100%;
+  max-width: 1100px;       /* ⬅️ szerokie zdjęcie */
+  aspect-ratio: 16 / 9;    /* ⬅️ poziomy prostokąt */
+  height: auto;
+  border-radius: 16px;
+  border: 2px solid rgba(216, 195, 165, 0.3);
+  box-shadow: 0 12px 32px rgba(216, 195, 165, 0.25);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 992px) {
+  .about-invite-section h3 {
+    font-size: 2.3rem;
+  }
+
+  .about-invite-section p {
+    font-size: 1.15rem;
+    max-width: 85%;
+  }
+
+  .about-invite-img {
+    max-width: 90%;
+    aspect-ratio: 16 / 10; /* lekko wyższe na tabletach */
+  }
+}
+
+@media (max-width: 576px) {
+  .about-invite-section h3 {
+    font-size: 1.9rem;
+  }
+
+  .about-invite-section p {
+    font-size: 1.05rem;
+    max-width: 95%;
+  }
+
+  .about-invite-img {
+    max-width: 95%;
+    aspect-ratio: 4 / 3; /* bardziej dopasowane do telefonu */
+  }
+}
+/* ===== SUBTELNE ODNOŚNIKI (LINKI DOLNE) ===== */
+.about-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-top: 40px; /* ⬅️ było 60px — podnosimy linki bliżej zdjęcia */
+  margin-bottom: 20px;
+  position: relative;
+  top: -20px; /* ⬅️ delikatne wizualne podniesienie */
+}
+
+
+.about-link {
+  position: relative;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.4rem;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.22s ease;
+}
+
+/* Efekt podkreślenia i kolor hover jak w Navbar */
+.about-link::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 2px;
+  background: #d8c3a5;
+  transition: transform 0.3s ease;
+}
+
+.about-link:hover {
+  color: #d8c3a5;
+}
+
+.about-link:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .about-links {
+    gap: 35px;
+  }
+
+  .about-link {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-link {
+    font-size: 1.25rem;
+  }
+}
+/* === EFEKT HOVER: PÓŁTRANSPARENTNA WARSTWA ZE SŁOWEM "SPRAWDŹ" === */
+.offer-mini-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(216, 195, 165, 0.55); /* delikatny beżowy filtr */
+  color: #fff;
+  font-family: "tytulowa", serif;
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.offer-mini-card:hover .offer-hover-overlay {
+  opacity: 1;
+}

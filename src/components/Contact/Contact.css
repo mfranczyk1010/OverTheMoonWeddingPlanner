@@ -1,0 +1,195 @@
+.contact-info-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;               
+  gap: 60px;                     
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* === ZDJĘCIE === */
+.contact-image {
+  flex: 0 1 500px;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 4;           
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(216, 195, 165, 0.4);
+}
+
+/* === TEKST === */
+.contact-text {
+  flex: 1 1 500px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.reqired{
+  color: red;
+}
+
+.contact-info-section h2,
+.contact-info-section h3 {
+  font-family: "tytulowa", serif;
+  font-size: 2.6rem;
+  margin-bottom: 16px;
+  color: #000;
+  border-bottom: 2px solid #d8c3a5;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.contact-info-section p {
+  font-size: 1.3rem;
+  color: #111;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.contact-info-section p:hover {
+  color: #d8c3a5;
+}
+
+/* ===== Responsywność ===== */
+
+/* Laptopy / Tablety */
+@media (max-width: 1100px) {
+  .contact-info-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .contact-image {
+    width: 80%;
+    max-width: 480px;
+  }
+
+  .contact-text {
+    width: 90%;
+    align-items: center;
+  }
+}
+
+/* Telefony poziome */
+@media (max-width: 768px) {
+  .contact-image {
+    width: 85%;
+    max-width: 400px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .contact-info-section h2,
+  .contact-info-section h3 {
+    font-size: 2rem;
+  }
+
+  .contact-info-section p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Telefony małe */
+@media (max-width: 480px) {
+  .contact-image {
+    width: 95%;
+    max-width: 360px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .contact-info-section h2,
+  .contact-info-section h3 {
+    font-size: 1.7rem;
+  }
+
+  .contact-info-section p {
+    font-size: 1rem;
+  }
+}
+#contact-form {
+  scroll-margin-top: 140px; /* żeby nie schował się pod navem */
+  animation: highlight 1.2s ease-out 1;
+}
+@keyframes highlight {
+  0%   { box-shadow: 0 0 0 rgba(216,195,165,0); }
+  30%  { box-shadow: 0 0 0 6px rgba(216,195,165,0.35); }
+  100% { box-shadow: 0 0 0 rgba(216,195,165,0); }
+}
+/* === FORMULARZ (elegancka ramka i szerokość) === */
+.contact-form-box {
+  background: #fffdf9;
+  border: 2px solid rgba(216, 195, 165, 0.45);
+  border-radius: 12px;
+  padding: 40px 50px;
+  max-width: 750px;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(216, 195, 165, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form-box:hover {
+  box-shadow: 0 10px 26px rgba(216, 195, 165, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Ujednolicenie marginesów i koloru pól */
+.contact-form-box label {
+  font-weight: 500;
+  color: #111;
+}
+
+.contact-form-box .form-control,
+.contact-form-box .form-select {
+  border: 1px solid rgba(216, 195, 165, 0.6);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.contact-form-box .form-control:focus,
+.contact-form-box .form-select:focus {
+  border-color: #d8c3a5;
+  box-shadow: 0 0 0 3px rgba(216, 195, 165, 0.3);
+  outline: none;
+}
+
+/* Przycisk wysyłania */
+.contact-form-box button {
+  font-size: 1.1rem;
+  padding: 10px 0;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.contact-form-box button:hover {
+  background: #d8c3a5;
+  border-color: #d8c3a5;
+  color: #fff;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .contact-form-box {
+    padding: 25px;
+    max-width: 95%;
+  }
+}
+a {
+  color: #d8c3a5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #b99d7c;
+}

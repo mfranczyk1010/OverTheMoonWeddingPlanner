@@ -1,0 +1,67 @@
+/* ===== OGÓLNE ===== */
+@font-face {
+  font-family: "tytulowa";
+  src: url("./assets/fonts/Black Mango Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --main-bg: #ffffff;
+  --main-text: #000000;
+  --accent: #d8c3a5; /* jasny beż */
+  --border-light: #ccc;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  display: block;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  scroll-behavior: smooth;
+}
+/* ===== KONTENER GŁÓWNY ===== */
+.app-wrapper {
+  width: 100vw;
+  min-height: calc(100vh - 160px - 60px);
+  display: flex;
+  background-color: var(--main-bg);
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 60px 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* ===== CONTENT BOX ===== */
+.content-box {
+  width: 95%;
+  background-color: var(--main-bg);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 20px var(--shadow);
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+}
+
+.content-box:hover {
+  box-shadow: 0 0 25px var(--accent);
+  border-color: var(--accent);
+}
+/* Treść nie nachodzi na navbar i footer */
+body {
+  padding-top: 300px;
+  padding-bottom: 60px;
+  overflow-x: hidden;
+}
+
+/* Styl tytułów globalnych */
+h1, h2, h3, h4 {
+  font-family: "tytulowa", serif;
+  color: #000;
+}

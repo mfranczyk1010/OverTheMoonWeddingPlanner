@@ -1,50 +1,141 @@
-/* ===== FULL-BLEED banner bez szpar i w 100% szerokości ekranu ===== */
-.about-banner-full {
-  /* szerokość ekranu bez „dolepionego” paska przewijania */
-  width: calc(100vw - (100vw - 100%));
-  /* precyzyjne wycentrowanie względem viewportu, bez uciekania na boki */
-  margin-left: calc(50% - 50vw + (100vw - 100%) / 2);
-  margin-right: calc(50% - 50vw + (100vw - 100%) / 2);
-
-  /* reszta */
+/* === BANNER WRAPPER === */
+.about-banner-wrapper {
   position: relative;
+  width: 100vw;
   overflow: hidden;
-  padding: 0;
+  margin-top: -100px; /* dopasowanie pod navbar */
+  transition: margin-top 0.3s ease, height 0.3s ease;
 }
 
-/* Obraz w pełni responsywny: 100% szerokości, automatyczna wysokość */
+/* === ZDJĘCIE === */
 .about-banner-img {
-  display: block;
   width: 100%;
-  height: auto;      /* <- klucz do skalowania przy zmianie zoomu/okna */
-  max-width: none;   /* brak limitu, żeby nie „trzymało” szerokości */
-  margin: 0;
-  border: 0;
-  /* jeśli chcesz: lekki, elegancki wygląd bez hoverów */
-  filter: none;
-  transform: none;
+  height: auto;
+  display: block;
+  max-width: none;
 }
 
-/* (opcjonalnie) delikatny gradient na dole – usuń, jeśli nie chcesz */
-.about-banner-full::after {
+/* === GRADIENT NA DOLE === */
+.about-banner-wrapper::after {
   content: "";
   position: absolute;
-  inset-inline: 0;
   bottom: 0;
-  height: 100px;
-  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 250, 245, 0.6) 45%,
+    rgba(255, 250, 245, 1) 100%
+  );
   pointer-events: none;
+  transition: height 0.3s ease;
+}
+
+/* === SUBTELNY CIEŃ POD NAVBAREM === */
+.about-banner-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+/* 📱=== RESPONSYWNOŚĆ === */
+@media (max-width: 1200px) {
+  .about-banner-wrapper {
+    margin-top: -80px;
+  }
+  .about-banner-wrapper::after {
+    height: 140px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-banner-wrapper {
+    margin-top: -60px;
+  }
+  .about-banner-wrapper::after {
+    height: 120px;
+  }
+}
+
+/* 📏 dokładnie przy przejściu w tryb hamburgera */
+@media (max-width: 800px) {
+  .about-banner-wrapper {
+    margin-top: -40px; /* banner podjeżdża bliżej navbara */
+  }
+
+  .about-banner-wrapper::after {
+    height: 100px;
+  }
+
+  /* subtelne zmniejszenie górnego cienia */
+  .about-banner-wrapper::before {
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-banner-wrapper {
+    margin-top: -35px;
+  }
+  .about-banner-wrapper::after {
+    height: 90px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-banner-wrapper {
+    margin-top: -25px;
+  }
+  .about-banner-wrapper::after {
+    height: 70px;
+  }
+}
+/* === ANIMACJA ŁADOWANIA === */
+.about-banner-wrapper.loading {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.about-banner-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 0.1s ease-out;
+}
+
+/* === UKRYWANIE POZOSTAŁEJ SEKCJI NA START === */
+.about-section.hidden {
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+}
+.about-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease-out 0.3s, transform 1.2s ease-out 0.3s;
 }
 
 
 /* ===== SEKCJA O MNIE ===== */
 .about-section {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 0; /* było 60px → zwiększamy */
-  text-align: center;
+  margin-top: -100px; /* dopasuj wizualnie */
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+    margin-top: 60px;
 }
+
 
 /* Większy odstęp między sekcją O mnie a Referencjami */
 .about-content {
@@ -54,7 +145,7 @@
 
 .about-title {
   font-family: "tytulowa", serif;
-  font-size: 4rem;
+  font-size:2.6rem;
   color: #000;
   margin-bottom: 30px;
   position: relative;
@@ -62,19 +153,17 @@
 
 .about-title::after {
   content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 120%;
-  height: 2px;
+  display: block;
+  width: 60%;
+  height: 1.5px;
   background: linear-gradient(
     90deg,
     rgba(216, 195, 165, 0) 0%,
-    rgba(216, 195, 165, 0.8) 25%,
-    rgba(216, 195, 165, 0.8) 75%,
+    rgba(216, 195, 165, 0.8) 50%,
     rgba(216, 195, 165, 0) 100%
   );
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
 }
 
 .about-text {

@@ -6,7 +6,7 @@ import { FaInstagram, FaBars, FaTimes } from "react-icons/fa";
 function Navigation({ setSection }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
-  const [menuOpen, setMenuOpen] = useState(false); // <-- stan hamburgera
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +16,12 @@ function Navigation({ setSection }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 🔹 Funkcja przełączania sekcji + przewijanie do góry
   const handleNavClick = (section) => {
     setSection(section);
     setActiveSection(section);
-    setMenuOpen(false); // zamyka menu po kliknięciu
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // 👈 dodane
   };
 
   return (

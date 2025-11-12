@@ -8,9 +8,9 @@ import ImageOffer3 from "../../assets/web_pictures/if3.jpg";
 import ImageEnd from "../../assets/web_pictures/endpic.jpg";
 import "./About.css";
 
-function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
+function About({ setSection }) {
 
-  // 🔹 Efekt fade-in przy przewijaniu
+  // 🔹 Efekt pojawiania się elementów przy scrollu (zostaje, jeśli chcesz)
   useEffect(() => {
     const animatedElements = document.querySelectorAll(
       ".about-title, .about-subtext, .about-subtitle, .testimonial-card, .offer-mini-card"
@@ -29,11 +29,9 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
     );
 
     animatedElements.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
-  // 🔹 Pomocnicza funkcja — przełącza sekcję + przewija na górę
   const navigateTo = (sectionName) => {
     setSection(sectionName);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -42,7 +40,7 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
   return (
     <>
       {/* --- BANNER --- */}
-      <div className="about-banner-full">
+      <div className="about-banner-wrapper">
         <img
           src={bannerImage}
           alt="Over The Moon Wedding"
@@ -55,7 +53,6 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
         <h2 className="about-title">O mnie</h2>
 
         <div className="about-content d-flex">
-          {/* LEWA kolumna – tekst */}
           <div className="about-text-side">
             <p>
               Organizuję personalizowane i nowoczesne przyjęcia przepełnione
@@ -77,7 +74,6 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
             </p>
           </div>
 
-          {/* PRAWA kolumna – zdjęcie */}
           <div className="about-photo-side">
             <img
               src={Image}
@@ -139,43 +135,24 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
           </p>
 
           <div className="offer-cards-mini">
-
-            <div className="offer-mini-card" onClick={() => navigateTo("offer")}>
-              <img src={ImageOffer1} alt="Pełna organizacja" className="offer-mini-img" />
-                  <div className="offer-hover-overlay">SPRAWDŹ</div>
-              <div className="offer-mini-content">
-                <h4>Pełna organizacja</h4>
-                <p>
-                  Od koncepcji po dzień ślubu — kompleksowa obsługa i pełne wsparcie na każdym etapie.
-                </p>
+            {[ 
+              { img: ImageOffer1, title: "Pełna organizacja", desc: "Od koncepcji po dzień ślubu — kompleksowa obsługa i pełne wsparcie na każdym etapie." },
+              { img: ImageOffer2, title: "Częściowa organizacja", desc: "Pomogę znaleźć brakujących podwykonawców oraz spiąć wszystko w jedną całość!" },
+              { img: ImageOffer3, title: "Koordynacja dnia ślubu", desc: "Czuwam nad przebiegiem uroczystości, byś mógł w pełni cieszyć się chwilą — bez stresu." }
+            ].map((offer, i) => (
+              <div key={i} className="offer-mini-card" onClick={() => navigateTo("offer")}>
+                <img src={offer.img} alt={offer.title} className="offer-mini-img" />
+                <div className="offer-hover-overlay">SPRAWDŹ</div>
+                <div className="offer-mini-content">
+                  <h4>{offer.title}</h4>
+                  <p>{offer.desc}</p>
+                </div>
               </div>
-            </div>
-
-          <div className="offer-mini-card" onClick={() => navigateTo("offer")}>
-            <img src={ImageOffer2} alt="Częściowa organizacja" className="offer-mini-img" />
-        <div className="offer-hover-overlay">SPRAWDŹ</div>
-        <div className="offer-mini-content">
-          <h4>Częściowa organizacja</h4>
-          <p>
-            Potrzebujecie pomocy w dograniu szczegółów? Pomogę znaleźć brakujących podwykonawców oraz spiąć wszystko w jedną całość!
-          </p>
-        </div>
-          </div>
-
-            <div className="offer-mini-card" onClick={() => navigateTo("offer")}>
-              <img src={ImageOffer3} alt="Koordynacja dnia ślubu" className="offer-mini-img" />
-               <div className="offer-hover-overlay">SPRAWDŹ</div>
-              <div className="offer-mini-content">
-                <h4>Koordynacja dnia ślubu</h4>
-                <p>
-                  Czuwam nad przebiegiem uroczystości, byś mógł w pełni cieszyć się chwilą — bez stresu.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* --- ZAPROSZENIE DO SPOTKANIA --- */}
+        {/* --- ZAPROSZENIE --- */}
         <div className="about-invite-section mt-5">
           <h3 className="about-subtitle">
             Zapraszam do pierwszego, niezobowiązującego spotkania 🤍
@@ -192,7 +169,7 @@ function About({ setSection }) { // ⬅️ przyjmujemy setSection z App.jsx
           />
         </div>
 
-        {/* --- SUBTELNE ODNOŚNIKI --- */}
+        {/* --- LINKI DOLNE --- */}
         <div className="about-links">
           <span className="about-link" onClick={() => navigateTo("offer")}>
             Oferta

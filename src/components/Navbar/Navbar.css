@@ -1,5 +1,3 @@
-
-
 .navbar-custom {
   position: fixed;
   top: 0;
@@ -23,7 +21,6 @@
   padding: 12px 30px;
   box-sizing: border-box;
   position: relative;
-  
 }
 
 /* --- LOGO --- */
@@ -38,18 +35,18 @@
   cursor: pointer;
   transition: font-size 0.3s ease, color 0.3s ease;
   z-index: 2;
-  white-space: nowrap; /* trzyma w jednej linii */
+  white-space: nowrap; /* 🔹 zawsze w jednej linii */
 }
 
-/* 🔹 ale na mniejszych ekranach pozwalamy łamać */
-@media (max-width: 1200px) {
+/* 🔹 tylko przy bardzo małych ekranach pozwalamy na łamanie */
+@media (max-width: 420px) {
   .navbar-logo {
     white-space: normal;
     line-height: 1.1;
     word-break: keep-all;
+    font-size: 3rem;
   }
 }
-
 
 .navbar-logo:hover {
   color: #d8c3a5;
@@ -128,17 +125,18 @@
   content: "";
   flex: 1;
 }
+
 .menu-toggle {
   flex: 0 0 auto;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: #000;
   cursor: pointer;
   transition: color 0.3s ease;
   z-index: 3;
   position: relative;
-  display: none; /* ⬅️ DODAJ TO — ukrywa hamburger na dużych ekranach */
+  display: none; /* ukryty na dużych ekranach */
+  margin-left: 20px; /* 🔹 większy odstęp od logo */
 }
-
 
 .menu-toggle:hover {
   color: #d8c3a5;
@@ -152,6 +150,7 @@
 
   .menu-toggle {
     display: block;
+    margin-left: 25px; /* 🔹 jeszcze większy odstęp w widoku mobilnym */
   }
 
   .navbar-bottom {

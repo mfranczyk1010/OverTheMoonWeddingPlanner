@@ -53,14 +53,51 @@ body, html {
   box-shadow: 0 0 25px var(--accent);
   border-color: var(--accent);
 }
-/* Treść nie nachodzi na navbar i footer */
 body {
-  padding-top: 300px;
-  padding-bottom: 60px;
+  padding: 0;
   overflow-x: hidden;
 }
 
-/* Styl tytułów globalnych */
+/* 🔹 Większy odstęp między navbarem a bannerem */
+.app-wrapper {
+  padding-top: 260px; /* 🠔 więcej miejsca na desktopie */
+  padding-bottom: 60px;
+  transition: padding-top 0.3s ease;
+}
+
+/* --- RESPONSYWNE DOPASOWANIE --- */
+@media (max-width: 1200px) {
+  .app-wrapper {
+    padding-top: 230px;
+  }
+}
+
+@media (max-width: 992px) {
+  .app-wrapper {
+    padding-top: 220px;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-wrapper {
+    padding-top: 140px; /* hamburgerowy navbar */
+  }
+}
+
+@media (max-width: 576px) {
+  .app-wrapper {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .app-wrapper {
+    padding-top: 170px;
+  }
+}
+
+
+tytułów globalnych */
 h1, h2, h3, h4 {
   font-family: "tytulowa", serif;
   color: #000;

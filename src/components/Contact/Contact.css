@@ -31,7 +31,37 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+  
 }
+/* === OZDOBNE PODKREŚLENIE DLA h3 === */
+.contact-text h3 {
+  font-family: "tytulowa", serif;
+  font-size: 2.6rem;
+  color: #000;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.contact-text h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 115%; /* możesz zmniejszyć do 100%, jeśli chcesz krótsze */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(216, 195, 165, 0) 0%,
+    rgba(216, 195, 165, 1) 25%,
+    rgba(216, 195, 165, 1) 75%,
+    rgba(216, 195, 165, 0) 100%
+  );
+  border-radius: 2px;
+}
+
 .reqired{
   color: red;
 }
@@ -42,10 +72,11 @@
   font-size: 2.6rem;
   margin-bottom: 16px;
   color: #000;
-  border-bottom: 2px solid #d8c3a5;
+
   display: inline-block;
   padding-bottom: 6px;
 }
+
 
 .contact-info-section p {
   font-size: 1.3rem;

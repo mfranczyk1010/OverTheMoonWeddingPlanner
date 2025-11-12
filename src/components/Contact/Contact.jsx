@@ -209,6 +209,7 @@ function Contact() {
                   <option>Pełna organizacja ślubu i wesela</option>
                   <option>Częściowa organizacja ślubu i wesela</option>
                   <option>Koordynacja dnia ślubu</option>
+                  <option>Kontakt w innej sprawie</option>
                 </Form.Select>
                 <Form.Control.Feedback type="invalid">
                   {errors.service}

@@ -84,7 +84,51 @@
   background-position: center right;
   position: relative;
 }
-/* efekt hover dla elementów listy */ .offer-list li:hover { color: #d8c3a5; transform: translateX(3px); transition: all 0.25s ease; } .offer-toggle-btn { background: none; border: none; color: #d8c3a5; font-weight: 500; font-size: 1.1rem; cursor: pointer; transition: color 0.25s ease, transform 0.2s ease; } .offer-toggle-btn span { color: #000; transition: color 0.25s ease; } .offer-toggle-btn:hover span { color: #d8c3a5; } .offer-toggle-btn:hover { color: #000; transform: translateY(-1px); } .offer-footer { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(216, 195, 165, 0.4); font-size: 1.1rem; color: #000; text-align: left; } .offer-contact-link { background: none; border: none; color: #d8c3a5; font-weight: 600; cursor: pointer; font-size: 1.1rem; transition: color 0.25s ease; } .offer-contact-link:hover { color: #000; }
+
+/* efekt hover dla elementów listy */ 
+.offer-list li:hover { 
+  color: #d8c3a5; 
+  transform: translateX(3px); 
+  transition: all 0.25s ease;
+ } 
+ .offer-toggle-btn { 
+  background: none; 
+  border: none; 
+  color: #d8c3a5; 
+  font-weight: 500; 
+  font-size: 1.1rem; 
+  cursor: pointer; 
+  transition: color 0.25s ease, transform 0.2s ease; 
+} 
+.offer-toggle-btn span { 
+  color: #000; transition: color 0.25s ease; 
+} 
+.offer-toggle-btn:hover span { 
+    color: #d8c3a5; 
+} 
+.offer-toggle-btn:hover { 
+  color: #000; 
+  transform: translateY(-1px); }
+.offer-footer { 
+  margin-top: 25px;
+   padding-top: 15px; 
+   border-top: 1px solid rgba(216, 195, 165, 0.4); 
+   font-size: 1.1rem; 
+   color: #000; 
+   text-align: left; 
+  } 
+.offer-contact-link { 
+  background: none;
+   border: none; 
+   color: #d8c3a5; 
+   font-weight: 600; 
+   cursor: pointer; 
+   font-size: 1.1rem; 
+   transition: color 0.25s ease; 
+  } 
+.offer-contact-link:hover { 
+  color: #000; 
+}
 
 .offer-right::before {
   content: "";
@@ -92,12 +136,11 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(255, 250, 245, 1) 0%,
-    rgba(255, 250, 245, 0.8) 20%,
-    rgba(255, 250, 245, 0.45) 50%,
-    rgba(255, 250, 245, 0.25) 70%,
-    rgba(255, 250, 245, 0.05) 90%,
-    rgba(255, 250, 245, 0) 100%
+  rgba(255, 250, 245, 1) 0%,
+      rgba(255, 250, 245, 0.85) 10%,
+      rgba(255, 250, 245, 0.4) 40%,
+      rgba(255, 250, 245, 0.15) 60%,
+      rgba(255, 250, 245, 0) 100%
   );
   pointer-events: none;
 }
@@ -280,10 +323,10 @@
    .offer-right::before {
     background: linear-gradient(
       to bottom,
-      rgba(255, 250, 245, 1) 0%,
-      rgba(255, 250, 245, 0.85) 20%,
-      rgba(255, 250, 245, 0.4) 50%,
-      rgba(255, 250, 245, 0.15) 80%,
+     rgba(255, 250, 245, 1) 0%,
+      rgba(255, 250, 245, 0.85) 10%,
+      rgba(255, 250, 245, 0.4) 40%,
+      rgba(255, 250, 245, 0.15) 60%,
       rgba(255, 250, 245, 0) 100%
     );
   }
@@ -368,9 +411,9 @@
     background: linear-gradient(
       to bottom,
       rgba(255, 250, 245, 1) 0%,
-      rgba(255, 250, 245, 0.85) 20%,
-      rgba(255, 250, 245, 0.4) 50%,
-      rgba(255, 250, 245, 0.15) 80%,
+      rgba(255, 250, 245, 0.85) 10%,
+      rgba(255, 250, 245, 0.4) 40%,
+      rgba(255, 250, 245, 0.15) 60%,
       rgba(255, 250, 245, 0) 100%
     );
   }

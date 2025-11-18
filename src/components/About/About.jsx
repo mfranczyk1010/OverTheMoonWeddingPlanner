@@ -86,7 +86,7 @@ function About({ setSection }) {
         {/* --- REFERENCJE --- */}
         <h3 className="about-subtitle mt-5">Referencje</h3>
         <p className="about-subtext">
-          Zobacz, co mówią Pary Młode o naszej współpracy 💬
+          Zobacz, co mówią moje Pary o naszej współpracy 💬
         </p>
 
         <div className="testimonials-grid mt-4">
@@ -101,29 +101,29 @@ function About({ setSection }) {
               komunikacja i ogromne zaangażowanie. To był magiczny, niezapomniany
               dzień. Z całego serca polecamy! ❤️”
             </blockquote>
-            <p className="testimonial-author">Karolina i Michał</p>
+            <p className="testimonial-author">Renata i Domnik</p>
           </div>
 
           <div className="testimonial-card">
             <blockquote>
-              “Przeogromnie polecam współpracę! 💗 Gosia ma indywidualne
+              “Przeogromnie polecam współpracę! Gosia ma indywidualne
               podejście do Klienta, dzięki czemu znalazła dla nas super
               kreatywne rozwiązania, których z pewnością sami byśmy nie
               znaleźli. No i cudowne wsparcie 💗 Mogliśmy cały czas liczyć na
-              pomoc Gosi. Serdecznie wszystkim polecam :)”
+              pomoc Gosi. Serdecznie wszystkim polecam!”
             </blockquote>
-            <p className="testimonial-author">Julia i Paweł</p>
+            <p className="testimonial-author">Klaudia i Wojtek</p>
           </div>
 
           <div className="testimonial-card">
             <blockquote>
               “Współpraca z Gosią to czysta przyjemność!✨ Znaleźliśmy ją
               przypadkiem na Instagramie i to był strzał w dziesiątkę! Pomogła
-              nam zorganizować przepiękne wesele 💜💙 Wszystko spięte na
+              nam zorganizować przepiękne wesele 💜 Wszystko spięte na
               ostatni guzik, zero stresu, bardzo nam pomogła przy koordynacji i
-              miała świetne pomysły i wskazówki. Polecamy z całego serca! 💫”
+              miała świetne pomysły i wskazówki. Polecamy z całego serca!”
             </blockquote>
-            <p className="testimonial-author">Ania i Krzysztof</p>
+            <p className="testimonial-author">Weronika i Dawid</p>
           </div>
         </div>
 

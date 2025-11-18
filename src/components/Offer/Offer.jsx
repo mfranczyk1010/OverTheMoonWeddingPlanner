@@ -4,7 +4,7 @@ import "./Offer.css";
 
 import OfferImg1 from "../../assets/web_pictures/offer_bg1.jpg";
 import OfferImg2 from "../../assets/web_pictures/offer_bg2.jpg";
-import OfferImg3 from "../../assets/web_pictures/offer_bg3.png";
+import OfferImg3 from "../../assets/web_pictures/offer_bg3.jpg";
 import ContactInfo from "../Common/ContactInfo";
 
 function Offer({ setSection }) {

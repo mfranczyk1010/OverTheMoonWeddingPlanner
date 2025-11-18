@@ -7,7 +7,7 @@ function Footer({ setSection }) {
     <footer className="footer-wrapper">
       <div className="footer-content">
         <p className="footer-text">
-          © {new Date().getFullYear()} Over The Moon Wedding Planner
+          © {new Date().getFullYear()} Over The Moon Wedding Planner Gosia Franczyk
         </p>
 
         <p

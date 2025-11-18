@@ -106,14 +106,14 @@ function Contact() {
         </div>
 
         <div className="col-12 col-md-6 d-flex flex-column justify-content-start contact-text">
-          <h3>Skontaktuj się z nami!</h3>
+          <h3>Skontaktuj się ze mną!</h3>
           <p>
             Ślub to nie tylko dekoracje i wybór sukni ślubnej, a przede
             wszystkim setki decyzji, terminy, umowy, emocje i stres.
           </p>
           <p>
             Wedding Planner to Twój spokój i pewność, że wszystko będzie
-            dopilnowane ✨  
+            dopilnowane   
             Kalendarz na rok 2026 i 2027 otwarty – porozmawiajmy 🤍
           </p>
           <p>

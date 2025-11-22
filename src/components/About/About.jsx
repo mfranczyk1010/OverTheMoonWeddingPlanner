@@ -42,7 +42,7 @@ function About({ setSection }) {
 
   return (
     <>
-      {/* --- BANNER (bez lazy — musi być szybki) --- */}
+      {/* --- BANNER --- */}
       <div className="about-banner-wrapper">
         <img
           src={bannerImage}
@@ -99,21 +99,35 @@ function About({ setSection }) {
           <div className="testimonial-card">
             <blockquote>
               “Mieliśmy ogromną przyjemność współpracować z Gosią przy
-              organizacji naszego wesela 22.08.2025...”
+              organizacji naszego wesela 22.08.2025. Uroczystość odbyła się w
+              sali Forest i od początku do końca wszystko było dopięte na
+              ostatni guzik. Gosia była niezwykle profesjonalna, uważna na
+              detale i otwarta na nasze pomysły. Dzięki niej mogliśmy cieszyć
+              się dniem bez stresu. Organizacja na najwyższym poziomie, świetna
+              komunikacja i ogromne zaangażowanie. To był magiczny, niezapomniany
+              dzień. Z całego serca polecamy! ❤️”
             </blockquote>
             <p className="testimonial-author">Renata i Domnik</p>
           </div>
 
           <div className="testimonial-card">
             <blockquote>
-              “Przeogromnie polecam współpracę! Gosia ma indywidualne podejście…”
+              “Przeogromnie polecam współpracę! Gosia ma indywidualne
+              podejście do Klienta, dzięki czemu znalazła dla nas super
+              kreatywne rozwiązania, których z pewnością sami byśmy nie
+              znaleźli. No i cudowne wsparcie 💗 Mogliśmy cały czas liczyć na
+              pomoc Gosi. Serdecznie wszystkim polecam!”
             </blockquote>
             <p className="testimonial-author">Klaudia i Wojtek</p>
           </div>
 
           <div className="testimonial-card">
             <blockquote>
-              “Współpraca z Gosią to czysta przyjemność!✨ ...”
+              “Współpraca z Gosią to czysta przyjemność!✨ Znaleźliśmy ją
+              przypadkiem na Instagramie i to był strzał w dziesiątkę! Pomogła
+              nam zorganizować przepiękne wesele 💜 Wszystko spięte na
+              ostatni guzik, zero stresu, bardzo nam pomogła przy koordynacji i
+              miała świetne pomysły i wskazówki. Polecamy z całego serca!”
             </blockquote>
             <p className="testimonial-author">Weronika i Dawid</p>
           </div>
@@ -127,10 +141,10 @@ function About({ setSection }) {
           </p>
 
           <div className="offer-cards-mini">
-            {[ 
-              { img: ImageOffer1, title: "Pełna organizacja", desc: "Od koncepcji..." },
-              { img: ImageOffer2, title: "Częściowa organizacja", desc: "Pomogę znaleźć..." },
-              { img: ImageOffer3, title: "Koordynacja dnia ślubu", desc: "Czuwam nad przebiegiem..." }
+            {[
+              { img: ImageOffer1, title: "Pełna organizacja", desc: "Od koncepcji po dzień ślubu — kompleksowa obsługa i pełne wsparcie na każdym etapie." },
+              { img: ImageOffer2, title: "Częściowa organizacja", desc: "Pomogę znaleźć brakujących podwykonawców oraz spiąć wszystko w jedną całość!" },
+              { img: ImageOffer3, title: "Koordynacja dnia ślubu", desc: "Czuwam nad przebiegiem uroczystości, byś mógł w pełni cieszyć się chwilą — bez stresu." }
             ].map((offer, i) => (
               <div key={i} className="offer-mini-card" onClick={() => navigateTo("offer")}>
                 <img

@@ -11,17 +11,35 @@
   box-sizing: border-box;
 }
 
-/* === ZDJĘCIE === */
-.contact-image {
+/* --- KONTENER ZDJĘCIA (zachowujemy layout) --- */
+.contact-image-wrapper {
   flex: 0 1 500px;
   width: 100%;
   max-width: 520px;
-  aspect-ratio: 3 / 4;           
-  background-size: cover;
-  background-position: center;
+}
+
+/* --- SZYBKIE ŁADOWANIE IMG zamiast background-image --- */
+.contact-image-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 8px 28px rgba(216, 195, 165, 0.4);
+  display: block;
 }
+/* --- HOVER DLA OBRAZKA KONTAKTOWEGO --- */
+.contact-image-img {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.contact-image-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 32px rgba(216, 195, 165, 0.55);
+}
+
+
 
 /* === TEKST === */
 .contact-text {

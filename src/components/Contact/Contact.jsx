@@ -98,11 +98,18 @@ function Contact() {
     <section className="section">
       {/* GÓRNA SEKCJA INFORMACYJNA */}
       <div className="contact-info-section row justify-content-center align-items-center mb-5">
-        <div className="col-12 col-md-4 mb-3 mb-md-0">
-          <div
-            className="contact-image"
-            style={{ backgroundImage: `url(${Image})` }}
-          />
+          {/* 🔥 Poprawione, prawdziwe IMG z szybkim ładowaniem */}
+        <div className="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
+      <div className="contact-image-wrapper">
+  <img
+    src={Image}
+    alt="Kontakt"
+    className="contact-image-img"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+  />
+</div>
         </div>
 
         <div className="col-12 col-md-6 d-flex flex-column justify-content-start contact-text">

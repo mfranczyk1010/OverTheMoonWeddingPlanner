@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Gallery.css";
 import ContactInfo from "../Common/ContactInfo.jsx";
@@ -13,6 +13,8 @@ const images = Object.values(
 function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState(null);
 
+  /* === FUNKCJE === */
+
   const openLightbox = (index) => {
     setSelectedIdx(index);
     document.body.style.overflow = "hidden";
@@ -23,28 +25,31 @@ function Gallery() {
     document.body.style.overflow = "auto";
   };
 
-  const showPrev = (e) => {
+  const showPrev = useCallback((e) => {
     e?.stopPropagation?.();
     setSelectedIdx((i) => (i > 0 ? i - 1 : images.length - 1));
-  };
+  }, []);
 
-  const showNext = (e) => {
+  const showNext = useCallback((e) => {
     e?.stopPropagation?.();
     setSelectedIdx((i) => (i < images.length - 1 ? i + 1 : 0));
-  };
+  }, []);
 
-  // Obsługa klawiatury: ESC, ←, →
+  /* === OBSŁUGA KLAWIATURY === */
   useEffect(() => {
     if (selectedIdx === null) return;
-    const handleKeyDown = (e) => {
+
+    const handleKey = (e) => {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") showPrev();
       if (e.key === "ArrowRight") showNext();
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIdx]);
 
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedIdx, showPrev, showNext]);
+
+  /* === RENDER === */
   return (
     <section className="gallery-section py-5">
       <div className="container text-center">
@@ -54,8 +59,17 @@ function Gallery() {
 
         <div className="gallery-grid">
           {images.map((src, i) => (
-            <div key={i} className="gallery-item" onClick={() => openLightbox(i)}>
-              <img src={src} alt={`Inspiracja ${i + 1}`} className="gallery-img" />
+            <div
+              key={i}
+              className="gallery-item"
+              onClick={() => openLightbox(i)}
+            >
+              <img
+                src={src}
+                alt={`Inspiracja ${i + 1}`}
+                className="gallery-img"
+                loading="lazy"      // 🔥 LAZY LOADING
+              />
             </div>
           ))}
         </div>
@@ -64,7 +78,10 @@ function Gallery() {
       {/* === LIGHTBOX === */}
       {selectedIdx !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="lightbox-close" onClick={closeLightbox}>
               &times;
             </span>
@@ -76,11 +93,13 @@ function Gallery() {
             >
               ‹
             </button>
+
             <img
               src={images[selectedIdx]}
               alt={`Podgląd zdjęcia ${selectedIdx + 1}`}
               className="lightbox-img"
             />
+
             <button
               className="lightbox-nav lightbox-next"
               onClick={showNext}

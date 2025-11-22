@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
-import Image from "../../assets/web_pictures/kontakt.jpg";
+import Image from "../../assets/web_pictures/kontakt.webp";
 import ContactInfo from "../Common/ContactInfo.jsx";
 
 function Contact() {

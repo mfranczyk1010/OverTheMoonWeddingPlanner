@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Offer.css";
 
-import OfferImg1 from "../../assets/web_pictures/offer_bg1.jpg";
-import OfferImg2 from "../../assets/web_pictures/offer_bg2.jpg";
-import OfferImg3 from "../../assets/web_pictures/offer_bg3.jpg";
+import OfferImg1 from "../../assets/web_pictures/offer_bg1.webp";
+import OfferImg2 from "../../assets/web_pictures/offer_bg2.webp";
+import OfferImg3 from "../../assets/web_pictures/offer_bg3.webp";
 import ContactInfo from "../Common/ContactInfo";
 
 function Offer({ setSection }) {

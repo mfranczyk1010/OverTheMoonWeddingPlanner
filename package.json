@@ -1,7 +1,7 @@
 {
   "name": "overthemoonweddingplanner",
   "private": true,
-  "version": "1.1.3",
+  "version": "1.1.5",
   "homepage": "https://mfranczyk1010.github.io/OverTheMoonWeddingPlanner",
   "type": "module",
   "scripts": {

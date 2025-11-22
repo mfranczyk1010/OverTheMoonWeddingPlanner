@@ -67,19 +67,20 @@
   color: #000;
 }
 
-/* 🔹 Przy mniejszych ekranach — łamie się po dwukropku */
 @media (max-width: 600px) {
   .footer-author {
     white-space: normal; /* pozwala na łamanie tekstu */
-    max-width: 140px;    /* ogranicza szerokość, wymusza zawinięcie */
+    max-width: 140px;    /* ogranicza szerokość */
     line-height: 1.3;
+    font-size: 0.55rem; /* ✅ POPRAWIONE — była literówka */
   }
 
   .footer-author strong::before {
-    content: "\A";       /* 🔹 łamanie linii po dwukropku */
+    content: "\A"; 
     white-space: pre;
   }
 }
+
 
 .footer-wrapper {
   position: relative; /* ✅ wymagane dla absolutnego pozycjonowania */

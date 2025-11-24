@@ -191,7 +191,7 @@
   .navbar-logo {
     white-space: nowrap;
     line-height: 1;
-    font-size: 2.4rem; /* dopasuj np. 2.2–2.6 w zależności od wyglądu */
+    font-size: 2.7rem; /* dopasuj np. 2.2–2.6 w zależności od wyglądu */
     letter-spacing: 1px; /* lekkie zwężenie liter dla lepszej czytelności */
   }
 }
@@ -206,7 +206,7 @@
   }
 
   .navbar-logo {
-    font-size: 2.2rem;            /* nieco mniejsze, żeby się zmieściło */
+    font-size: 2.7rem;            /* nieco mniejsze, żeby się zmieściło */
     margin-bottom: 4px;
   }
 

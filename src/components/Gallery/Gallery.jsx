@@ -3,17 +3,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Gallery.css";
 import ContactInfo from "../Common/ContactInfo.jsx";
 
-/* === AUTOMATYCZNE ŁADOWANIE OBRAZÓW === */
-const images = Object.values(
+/* === AUTOMATYCZNE ŁADOWANIE OBRAZÓW + SORTOWANIE === */
+const images = Object.entries(
   import.meta.glob("../../assets/gallery_pictures/*.{png,jpg,jpeg,webp}", {
     eager: true,
   })
-).map((module) => module.default);
+)
+  .sort(([a], [b]) =>
+    a.localeCompare(b, undefined, { numeric: true }) // sort wg nazw
+  )
+  .map(([_, module]) => module.default);
 
 function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState(null);
-
-  /* === FUNKCJE === */
 
   const openLightbox = (index) => {
     setSelectedIdx(index);
@@ -49,7 +51,6 @@ function Gallery() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [selectedIdx, showPrev, showNext]);
 
-  /* === RENDER === */
   return (
     <section className="gallery-section py-5">
       <div className="container text-center">
@@ -59,16 +60,14 @@ function Gallery() {
 
         <div className="gallery-grid">
           {images.map((src, i) => (
-            <div
-              key={i}
-              className="gallery-item"
-              onClick={() => openLightbox(i)}
-            >
+            <div key={i} className="gallery-item" onClick={() => openLightbox(i)}>
               <img
                 src={src}
                 alt={`Inspiracja ${i + 1}`}
                 className="gallery-img"
-                loading="lazy"      // 🔥 LAZY LOADING
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           ))}

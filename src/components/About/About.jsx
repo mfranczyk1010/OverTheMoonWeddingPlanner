@@ -167,14 +167,14 @@ function About({ setSection }) {
         <div className="about-offer-preview mt-5">
           <h3 className="about-subtitle mb-4">Oferta</h3>
           <p className="about-subtext mb-5">
-            Sprawdź, w jaki sposób mogę pomóc Ci w organizacji wymarzonego dnia 
+            Sprawdź, w jaki sposób mogę Ci pomóc
           </p>
 
           <div className="offer-cards-mini">
             {[
               { img: ImageOffer1, title: "Pełna organizacja", desc: "Od koncepcji po dzień ślubu — kompleksowa obsługa i pełne wsparcie na każdym etapie." },
-              { img: ImageOffer2, title: "Częściowa organizacja", desc: "Pomogę znaleźć brakujących podwykonawców oraz spiąć wszystko w jedną całość!" },
-              { img: ImageOffer3, title: "Koordynacja dnia ślubu", desc: "Czuwam nad przebiegiem uroczystości, byś mógł w pełni cieszyć się chwilą — bez stresu." }
+              { img: ImageOffer2, title: "Częściowa organizacja", desc: "Pomogę znaleźć brakujących podwykonawców oraz spiąć wszystko w jedną całość." },
+              { img: ImageOffer3, title: "Koordynacja dnia ślubu", desc: "Czuwam nad przebiegiem uroczystości, abyście mogli w pełni cieszyć się chwilą — bez stresu." }
             ].map((offer, i) => (
               <div key={i} className="offer-mini-card" onClick={() => navigateTo("offer")}>
                 <img
@@ -200,8 +200,7 @@ function About({ setSection }) {
             Zapraszam do pierwszego, niezobowiązującego spotkania 🤍
           </h3>
           <p className="about-subtext">
-            Z przyjemnością opowiem o tym, jak przebiega współpraca  
-            i w jaki sposób mogę pomóc Wam w stworzeniu idealnego dnia.
+            Porozmawiajmy o Waszych marzeniach i razem stwórzmy coś pięknego
           </p>
 
           <img

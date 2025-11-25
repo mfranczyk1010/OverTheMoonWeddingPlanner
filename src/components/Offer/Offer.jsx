@@ -71,7 +71,7 @@ function Offer({ setSection }) {
             <div className="offer-left">
               <h5 className="offer-card-title">Pełna organizacja ślubu i wesela</h5>
               <p>
-                Nie wiecie od czego zacząć planowanie swojego ślubu? Oto jestem :)  
+                Nie wiecie od czego zacząć planowanie swojego ślubu? Oto jestem! 
                 Przejdę z Wami przez cały proces planowania – od koncepcji po dzień ślubu.
                 Pomogę dobrać odpowiednich podwykonawców, wybrać motyw przewodni,
                 dekoracje i dopilnować każdego szczegółu.
@@ -116,7 +116,7 @@ function Offer({ setSection }) {
               {showMore.full && (
                 <div className="offer-footer mt-4 text-center">
                   <p className="fw-semibold">
-                    Zainteresowana tą ofertą?{" "}
+                    Zainteresowani tą opcją?{" "}
                     <span
                       className="offer-contact-link"
                       onClick={() =>
@@ -177,7 +177,7 @@ function Offer({ setSection }) {
               {showMore.partial && (
                 <div className="offer-footer mt-4 text-center">
                   <p className="fw-semibold">
-                    Zainteresowana tą ofertą?{" "}
+                    Zainteresowani tą opcją?{" "}
                     <span
                       className="offer-contact-link"
                       onClick={() =>
@@ -202,8 +202,11 @@ function Offer({ setSection }) {
               <h5 className="offer-card-title">Koordynacja dnia ślubu</h5>
               <p>
                 Dzień ślubu to czas radości — nie stresu.  
-                Zadbam, by wszystko przebiegało zgodnie z planem,  
-                a Wy mogli w pełni cieszyć się chwilą.
+                Obejmuje koordynację według ustalonego wcześniej scenariusza dnia
+ślubu. Czuwam nad każdym ustalonym aspektem.
+
+Zakres obowiązków zbliżony do częściowej organizacji z wyłączeniem pomocy w doborze usługodawców.Pracuję na tym co już zaplanowaliście.
+
               </p>
 
               <ul className="offer-list">
@@ -232,7 +235,7 @@ function Offer({ setSection }) {
              {showMore.coordination && (
   <div className="offer-footer mt-4 text-center">
     <p className="fw-semibold">
-      Zainteresowana tą ofertą?{" "}
+      Zainteresowani tą opcją?{" "}
       <span
         className="offer-contact-link"
         onClick={() =>

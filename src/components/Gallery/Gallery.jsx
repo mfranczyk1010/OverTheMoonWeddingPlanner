@@ -97,7 +97,7 @@ function Gallery() {
 
 
 
-  
+
   /* === RENDER === */
   return (
     <section className="gallery-section py-5">
@@ -105,7 +105,7 @@ function Gallery() {
         
         {/* Tytuł galerii */}
         <h2 className="gallery-title mb-5 position-relative d-inline-block">
-          Ślubne inspiracje
+          Zobacz moje realizajce
         </h2>
 
         {/* Siatka zdjęć */}

@@ -7,18 +7,46 @@ import OfferImg2 from "../../assets/web_pictures/offer_bg2.webp";
 import OfferImg3 from "../../assets/web_pictures/offer_bg3.webp";
 import ContactInfo from "../Common/ContactInfo";
 
+/*
+===========================================================
+  KOD JEST SKOMENTOWANY PRZEZ CHAT GPT,
+  PISANY WŁASNORĘCZNIE HEJTERZE
+===========================================================
+
+  === 📌 KOMPONENT OFERTY (3 warianty współpracy) ===
+
+  Ten komponent odpowiada za:
+
+  ✔ wyświetlanie trzech wariantów współpracy  
+  ✔ efekt 60/40 – tekst + zdjęcie  
+  ✔ eleganckie rozwijanie listy obowiązków (collapse)  
+  ✔ animowane "Pokaż więcej / mniej"  
+  ✔ automatyczne przeniesienie wybranego wariantu do formularza  
+  ✔ integrację z Contact.jsx przez localStorage  
+  ✔ pełną responsywność i lekki kod
+
+  Całość utrzymana w premium stylu zgodnym z całą stroną.
+*/
+
 function Offer({ setSection }) {
   const [showMore, setShowMore] = useState({
-    full: false,
-    partial: false,
-    coordination: false,
+    full: false,           // 🔸 sekcja PEŁNA ORGANIZACJA otwarta/zamknięta
+    partial: false,        // 🔸 sekcja CZĘŚCIOWA ORGANIZACJA
+    coordination: false,   // 🔸 sekcja KOORDYNACJA DNIA
   });
 
+  /* --------------------------------------------------------
+     📌 Zapamiętywanie wybranej oferty i przekierowanie
+     do formularza kontaktowego (Contact.jsx)
+  -------------------------------------------------------- */
   const handleContactRedirect = (offerName) => {
     localStorage.setItem("selectedOffer", offerName);
     setSection("contact");
   };
 
+  /* --------------------------------------------------------
+     📌 Przełączanie sekcji "Pokaż więcej"
+  -------------------------------------------------------- */
   const toggleShow = (key) => {
     setShowMore((prev) => ({ ...prev, [key]: !prev[key] }));
   };

@@ -6,7 +6,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 340;
+  font-style: normal;
   color: #000;
 }
 

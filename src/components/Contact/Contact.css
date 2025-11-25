@@ -9,6 +9,10 @@
   justify-content: center;
   padding: 40px 0;
   box-sizing: border-box;
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
 }
 
 /* --- KONTENER ZDJĘCIA (zachowujemy layout) --- */
@@ -168,6 +172,7 @@
 #contact-form {
   scroll-margin-top: 140px; /* żeby nie schował się pod navem */
   animation: highlight 1.2s ease-out 1;
+  
 }
 @keyframes highlight {
   0%   { box-shadow: 0 0 0 rgba(216,195,165,0); }
@@ -184,6 +189,8 @@
   margin: 0 auto;
   box-shadow: 0 6px 18px rgba(216, 195, 165, 0.25);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-family: "Red Hat Display", sans-serif;
+ 
 }
 
 .contact-form-box:hover {

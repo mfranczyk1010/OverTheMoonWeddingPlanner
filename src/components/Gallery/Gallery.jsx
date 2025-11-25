@@ -3,41 +3,85 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Gallery.css";
 import ContactInfo from "../Common/ContactInfo.jsx";
 
-/* === AUTOMATYCZNE ŁADOWANIE OBRAZÓW + SORTOWANIE === */
+/*
+===========================================================
+  KOD JEST SKOMENTOWANY PRZEZ CHAT GPT,
+  PISANY WŁASNORĘCZNIE HEJTERZE
+===========================================================
+*/
+
+/*
+  === 📌 ZAŁADOWANIE OBRAZÓW DO GALERII ===
+
+  import.meta.glob() — funkcja Vite, która automatycznie importuje
+  WSZYSTKIE pliki graficzne z folderu gallery_pictures.
+
+  ✔ działa automatycznie
+  ✔ nie trzeba ręcznie importować każdego zdjęcia
+  ✔ każde nowe zdjęcie dodane do folderu pojawi się w galerii
+  ✔ sortowanie po nazwach plików (zgodnie z kolejnością w folderze)
+
+  Dzięki temu galeria jest w 100% dynamiczna i skalowalna.
+*/
+
 const images = Object.entries(
   import.meta.glob("../../assets/gallery_pictures/*.{png,jpg,jpeg,webp}", {
-    eager: true,
+    eager: true, // natychmiast ładuje ścieżki — brak opóźnień
   })
 )
   .sort(([a], [b]) =>
-    a.localeCompare(b, undefined, { numeric: true }) // sort wg nazw
+    a.localeCompare(b, undefined, { numeric: true }) // naturalne sortowanie nazw
   )
   .map(([_, module]) => module.default);
+
+
+
+/*
+  === 📌 KOMPONENT GALLERY ===
+
+  Wyświetla:
+  ✔ siatkę zdjęć
+  ✔ lightbox (powiększenie zdjęcia)
+  ✔ przełączanie strzałkami
+  ✔ zamykanie ESC
+  ✔ blokowanie scrolla podczas podglądu
+
+  Komponent jest czysto prezentacyjny, stan dotyczy tylko indeksu zdjęcia.
+*/
 
 function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState(null);
 
+  /* --- OTWARCIE LIGHTBOXA --- */
   const openLightbox = (index) => {
     setSelectedIdx(index);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden"; // blokuje scroll tła
   };
 
+  /* --- ZAMKNIĘCIE LIGHTBOXA --- */
   const closeLightbox = () => {
     setSelectedIdx(null);
     document.body.style.overflow = "auto";
   };
 
+  /* --- NAWIGACJA (poprzednie) --- */
   const showPrev = useCallback((e) => {
     e?.stopPropagation?.();
     setSelectedIdx((i) => (i > 0 ? i - 1 : images.length - 1));
   }, []);
 
+  /* --- NAWIGACJA (następne) --- */
   const showNext = useCallback((e) => {
     e?.stopPropagation?.();
     setSelectedIdx((i) => (i < images.length - 1 ? i + 1 : 0));
   }, []);
 
-  /* === OBSŁUGA KLAWIATURY === */
+
+  /*
+    === 📌 OBSŁUGA KLAWIATURY ===
+    ESC → zamknij
+    ← → przełącz zdjęcia
+  */
   useEffect(() => {
     if (selectedIdx === null) return;
 
@@ -51,16 +95,27 @@ function Gallery() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [selectedIdx, showPrev, showNext]);
 
+
+
+  
+  /* === RENDER === */
   return (
     <section className="gallery-section py-5">
       <div className="container text-center">
+        
+        {/* Tytuł galerii */}
         <h2 className="gallery-title mb-5 position-relative d-inline-block">
           Ślubne inspiracje
         </h2>
 
+        {/* Siatka zdjęć */}
         <div className="gallery-grid">
           {images.map((src, i) => (
-            <div key={i} className="gallery-item" onClick={() => openLightbox(i)}>
+            <div
+              key={i}
+              className="gallery-item"
+              onClick={() => openLightbox(i)}
+            >
               <img
                 src={src}
                 alt={`Inspiracja ${i + 1}`}
@@ -74,6 +129,7 @@ function Gallery() {
         </div>
       </div>
 
+
       {/* === LIGHTBOX === */}
       {selectedIdx !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
@@ -81,10 +137,12 @@ function Gallery() {
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Zamknięcie */}
             <span className="lightbox-close" onClick={closeLightbox}>
               &times;
             </span>
 
+            {/* Strzałka lewa */}
             <button
               className="lightbox-nav lightbox-prev"
               onClick={showPrev}
@@ -93,12 +151,14 @@ function Gallery() {
               ‹
             </button>
 
+            {/* Wybrane zdjęcie */}
             <img
               src={images[selectedIdx]}
               alt={`Podgląd zdjęcia ${selectedIdx + 1}`}
               className="lightbox-img"
             />
 
+            {/* Strzałka prawa */}
             <button
               className="lightbox-nav lightbox-next"
               onClick={showNext}

@@ -11,9 +11,33 @@ import ImageEnd from "../../assets/web_pictures/endpic.webp";
 
 import "./About.css";
 
+/*  
+===========================================================
+  KOD JEST SKOMENTOWANY PRZEZ CHAT GPT, 
+  PISANY WŁASNORĘCZNIE HEJTERZE 
+===========================================================
+*/
+
+/*
+  === 📌 KOMPONENT ABOUT ===
+  Komponent odpowiada za wyświetlenie sekcji "O mnie", referencji,
+  mini-oferty oraz bloku końcowego z zachętą do kontaktu.
+  
+  Zawiera:
+  ✔ animacje wejścia elementów (IntersectionObserver)
+  ✔ lekką optymalizację ładowania zdjęć (lazy + decoding)
+  ✔ interaktywne mini-karty oferty
+  ✔ responsywne siatki i układ
+*/
 function About({ setSection }) {
 
-  // 🔹 Efekt pojawiania się elementów przy scrollu (zostaje)
+
+
+  /* 
+    🔹 OBSERWATOR SCROLLA
+    Dodaje klasę .visible elementom, gdy pojawią się w viewport.
+    Dzięki temu animacje CSS odpalają się dopiero przy wejściu na ekran.
+  */
   useEffect(() => {
     const animatedElements = document.querySelectorAll(
       ".about-title, .about-subtext, .about-subtitle, .testimonial-card, .offer-mini-card"
@@ -34,6 +58,12 @@ function About({ setSection }) {
     animatedElements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+
+    /*
+    🔹 NAWIGACJA MIĘDZY SEKCJAMI
+    Ustawia widoczną sekcję oraz przewija ekran do góry.
+  */
 
   const navigateTo = (sectionName) => {
     setSection(sectionName);
@@ -92,7 +122,7 @@ function About({ setSection }) {
         {/* --- REFERENCJE --- */}
         <h3 className="about-subtitle mt-5">Referencje</h3>
         <p className="about-subtext">
-          Zobacz, co mówią moje Pary o naszej współpracy 💬
+          Zobacz, co mówią moje Pary o naszej współpracy 
         </p>
 
         <div className="testimonials-grid mt-4">
@@ -105,7 +135,7 @@ function About({ setSection }) {
               detale i otwarta na nasze pomysły. Dzięki niej mogliśmy cieszyć
               się dniem bez stresu. Organizacja na najwyższym poziomie, świetna
               komunikacja i ogromne zaangażowanie. To był magiczny, niezapomniany
-              dzień. Z całego serca polecamy! ❤️”
+              dzień. Z całego serca polecamy!”
             </blockquote>
             <p className="testimonial-author">Renata i Domnik</p>
           </div>
@@ -115,7 +145,7 @@ function About({ setSection }) {
               “Przeogromnie polecam współpracę! Gosia ma indywidualne
               podejście do Klienta, dzięki czemu znalazła dla nas super
               kreatywne rozwiązania, których z pewnością sami byśmy nie
-              znaleźli. No i cudowne wsparcie 💗 Mogliśmy cały czas liczyć na
+              znaleźli. No i cudowne wsparcie Mogliśmy cały czas liczyć na
               pomoc Gosi. Serdecznie wszystkim polecam!”
             </blockquote>
             <p className="testimonial-author">Klaudia i Wojtek</p>
@@ -123,9 +153,9 @@ function About({ setSection }) {
 
           <div className="testimonial-card">
             <blockquote>
-              “Współpraca z Gosią to czysta przyjemność!✨ Znaleźliśmy ją
+              “Współpraca z Gosią to czysta przyjemność! Znaleźliśmy ją
               przypadkiem na Instagramie i to był strzał w dziesiątkę! Pomogła
-              nam zorganizować przepiękne wesele 💜 Wszystko spięte na
+              nam zorganizować przepiękne wesele Wszystko spięte na
               ostatni guzik, zero stresu, bardzo nam pomogła przy koordynacji i
               miała świetne pomysły i wskazówki. Polecamy z całego serca!”
             </blockquote>
@@ -137,7 +167,7 @@ function About({ setSection }) {
         <div className="about-offer-preview mt-5">
           <h3 className="about-subtitle mb-4">Oferta</h3>
           <p className="about-subtext mb-5">
-            Sprawdź, w jaki sposób mogę pomóc Ci w organizacji wymarzonego dnia 💍
+            Sprawdź, w jaki sposób mogę pomóc Ci w organizacji wymarzonego dnia 
           </p>
 
           <div className="offer-cards-mini">
